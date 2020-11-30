@@ -9,6 +9,8 @@ if isempty(c)
 c=0;
 end
 
+ 
+
  state_labels = [6 4 3]; %r,d,t
 recovery_time = recoverytimes((c+1):(c+n));
 death_time= deathtimes((c+1):(c+n));%death times associated with ATB . (deathtimes((c+1):(c+n))).*inf;%deathtimes((c+1):(c+n));
@@ -17,6 +19,7 @@ c=c+n;
 
 
  
+ df=[recovery_time,death_time,treatment_time]; %smear_time,
  for i = 1:n
       state = find(df(i,:) == min(df(i,:))); %which indices have min delay time per row
     if (length(state) > 1) % if there are multiple mins, take sample of only 1
@@ -27,6 +30,6 @@ c=c+n;
       delays(i) = time;
  end   
  
-   
+
 
   c_out =[states delays];

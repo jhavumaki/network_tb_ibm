@@ -1,6 +1,7 @@
 %adapted from Kasaie et al. 2014, main passive surveillance only model
 function main_network_tb_comm4(ARRAYID)
 
+ppp=1;
 pp=1;
 HH = 5; %size of households
 HH_contacts = HH-1; %number of contacts per household
@@ -28,6 +29,9 @@ incidence={};
 AnnualCInf={};
 AnnualHHInf={};
 newTx={};
+
+newTxAll=[];
+newTPTAll=[];
 
 
 

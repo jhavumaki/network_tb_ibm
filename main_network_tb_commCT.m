@@ -28,7 +28,7 @@ incidence={};
 
 AnnualCInf={};
 AnnualHHInf={};
-newTx={};
+
 
 newTxAll=[];
 newTPTAll=[];
@@ -165,8 +165,11 @@ incATB=[];
 atb_pos=[];
 cumI=0;
 y=1;
-ATB_ID=[];
+
+newTx=0;
+newTPT=0;
 HH_Comm_ATB=[];
+ATB_ID=[];
 
 %start simulation
 for t = 1:tspan

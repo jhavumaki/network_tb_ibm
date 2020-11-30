@@ -28,7 +28,6 @@ incidence={};
 
 AnnualCInf={};
 AnnualHHInf={};
-newTx={};
 
 newTxAll=[];
 newTPTAll=[];
@@ -165,8 +164,11 @@ incATB=[];
 atb_pos=[];
 cumI=0;
 y=1;
-ATB_ID=[];
+
+newTx=0;
+newTPT=0;
 HH_Comm_ATB=[];
+ATB_ID=[];
 
 %start simulation
 for t = 1:tspan
@@ -269,8 +271,8 @@ end
  
       states1=state_df(transition_ids,2);
       curr_time=repmat(t, length(states1),1);
-      %next_states = arrayfun(@draw_next_state, states, curr_time, 'uniformoutput',false );
-      next_states = arrayfun(@(x) draw_next_statevNoExtParams_mat11(x,t, timestep,fltimes, recoverytimes, ATBdeathtimes, txtimes, lltimes, deathtimes, monthly_rates, burnin_t, treatment_duration, ipt_duration), states1, 'UniformOutput', false);
+
+      next_states = arrayfun(@(x) draw_next_state(x,t, timestep,fltimes, recoverytimes, ATBdeathtimes, txtimes, lltimes, deathtimes, monthly_rates, burnin_t, treatment_duration, ipt_duration), states1, 'UniformOutput', false);
       next_states = cat(1,next_states{:});
       state_df(transition_ids,3) = next_states(:,1);
       state_df(transition_ids,4) = t + next_states(:,2);
